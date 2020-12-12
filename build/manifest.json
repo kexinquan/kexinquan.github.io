@@ -1,0 +1,25 @@
+{
+  "short_name": "Kexin Website",
+  "name": "Kexin Quan's website",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+//    {
+//      "src": "/website_icon.png",
+//      "type": "image/png",
+//      "sizes": "225x225"
+//    },
+//    {
+//      "src": "/bigger.png",
+//      "type": "image/png",
+//      "sizes": "688x650"
+//    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6c63ff",
+  "background_color": "#ffffff"
+}

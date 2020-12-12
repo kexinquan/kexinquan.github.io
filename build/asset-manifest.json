@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/website/static/css/main.cfd73156.chunk.css",
+    "main.js": "/website/static/js/main.37e65be6.chunk.js",
+    "main.js.map": "/website/static/js/main.37e65be6.chunk.js.map",
+    "runtime-main.js": "/website/static/js/runtime-main.69bf818e.js",
+    "runtime-main.js.map": "/website/static/js/runtime-main.69bf818e.js.map",
+    "static/js/2.a63dc641.chunk.js": "/website/static/js/2.a63dc641.chunk.js",
+    "static/js/2.a63dc641.chunk.js.map": "/website/static/js/2.a63dc641.chunk.js.map",
+    "static/css/3.c7b31c95.chunk.css": "/website/static/css/3.c7b31c95.chunk.css",
+    "static/js/3.3a9f71e0.chunk.js": "/website/static/js/3.3a9f71e0.chunk.js",
+    "static/js/3.3a9f71e0.chunk.js.map": "/website/static/js/3.3a9f71e0.chunk.js.map",
+    "static/css/4.54df59d4.chunk.css": "/website/static/css/4.54df59d4.chunk.css",
+    "static/js/4.2c6aceb2.chunk.js": "/website/static/js/4.2c6aceb2.chunk.js",
+    "static/js/4.2c6aceb2.chunk.js.map": "/website/static/js/4.2c6aceb2.chunk.js.map",
+    "index.html": "/website/index.html",
+    "precache-manifest.b098d94e9885307a37b40a91b55bb52c.js": "/website/precache-manifest.b098d94e9885307a37b40a91b55bb52c.js",
+    "service-worker.js": "/website/service-worker.js",
+    "static/css/3.c7b31c95.chunk.css.map": "/website/static/css/3.c7b31c95.chunk.css.map",
+    "static/css/4.54df59d4.chunk.css.map": "/website/static/css/4.54df59d4.chunk.css.map",
+    "static/css/main.cfd73156.chunk.css.map": "/website/static/css/main.cfd73156.chunk.css.map",
+    "static/media/10211.png": "/website/static/media/10211.d0332b74.png",
+    "static/media/1181.png": "/website/static/media/1181.05204366.png",
+    "static/media/index.css": "/website/static/media/Montserrat-Regular.ee653992.ttf",
+    "static/media/WechatIMG450.jpeg": "/website/static/media/WechatIMG450.a461c555.jpeg",
+    "static/media/cnn3.jpg": "/website/static/media/cnn3.b58283f6.jpg",
+    "static/media/cogdevlab.png": "/website/static/media/cogdevlab.f2db519e.png",
+    "static/media/contactMail.webp": "/website/static/media/contactMail.68e84138.webp",
+    "static/media/futurelab.jpeg": "/website/static/media/futurelab.aeca5056.jpeg",
+    "static/media/logo.svg": "/website/static/media/logo.25bf045c.svg",
+    "static/media/neurosky.png": "/website/static/media/neurosky.775d12e6.png",
+    "static/media/programmer.svg": "/website/static/media/programmer.c1a95f73.svg",
+    "static/media/protolab1.png": "/website/static/media/protolab1.9d2b36ac.png",
+    "static/media/skill.png": "/website/static/media/skill.f6acef5c.png",
+    "static/media/terroristmap1.jpeg": "/website/static/media/terroristmap1.f233d99d.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.69bf818e.js",
+    "static/js/2.a63dc641.chunk.js",
+    "static/css/main.cfd73156.chunk.css",
+    "static/js/main.37e65be6.chunk.js"
+  ]
+}
