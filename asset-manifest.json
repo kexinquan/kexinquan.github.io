@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.584b2c00.chunk.css",
+    "main.js": "/my-app/static/js/main.8e4d9b88.chunk.js",
+    "main.js.map": "/my-app/static/js/main.8e4d9b88.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.a3f8cb8f.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.a3f8cb8f.js.map",
+    "static/js/2.a63dc641.chunk.js": "/my-app/static/js/2.a63dc641.chunk.js",
+    "static/js/2.a63dc641.chunk.js.map": "/my-app/static/js/2.a63dc641.chunk.js.map",
+    "static/css/3.c7b31c95.chunk.css": "/my-app/static/css/3.c7b31c95.chunk.css",
+    "static/js/3.3a9f71e0.chunk.js": "/my-app/static/js/3.3a9f71e0.chunk.js",
+    "static/js/3.3a9f71e0.chunk.js.map": "/my-app/static/js/3.3a9f71e0.chunk.js.map",
+    "static/css/4.54df59d4.chunk.css": "/my-app/static/css/4.54df59d4.chunk.css",
+    "static/js/4.45b33ffb.chunk.js": "/my-app/static/js/4.45b33ffb.chunk.js",
+    "static/js/4.45b33ffb.chunk.js.map": "/my-app/static/js/4.45b33ffb.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "precache-manifest.02c3599240c2062386cc7c42ef606db7.js": "/my-app/precache-manifest.02c3599240c2062386cc7c42ef606db7.js",
+    "service-worker.js": "/my-app/service-worker.js",
+    "static/css/3.c7b31c95.chunk.css.map": "/my-app/static/css/3.c7b31c95.chunk.css.map",
+    "static/css/4.54df59d4.chunk.css.map": "/my-app/static/css/4.54df59d4.chunk.css.map",
+    "static/css/main.584b2c00.chunk.css.map": "/my-app/static/css/main.584b2c00.chunk.css.map",
+    "static/media/1181.png": "/my-app/static/media/1181.05204366.png",
+    "static/media/index.css": "/my-app/static/media/Montserrat-Regular.ee653992.ttf",
+    "static/media/big_image.png": "/my-app/static/media/big_image.c1b44487.png",
+    "static/media/cnn3.jpg": "/my-app/static/media/cnn3.b58283f6.jpg",
+    "static/media/cogdevlab.png": "/my-app/static/media/cogdevlab.f2db519e.png",
+    "static/media/contactMail.webp": "/my-app/static/media/contactMail.68e84138.webp",
+    "static/media/futurelab.jpeg": "/my-app/static/media/futurelab.aeca5056.jpeg",
+    "static/media/logo.svg": "/my-app/static/media/logo.25bf045c.svg",
+    "static/media/pro.jpeg": "/my-app/static/media/pro.9e898a37.jpeg",
+    "static/media/programmer.svg": "/my-app/static/media/programmer.c1a95f73.svg",
+    "static/media/protolab1.png": "/my-app/static/media/protolab1.9d2b36ac.png",
+    "static/media/skill.png": "/my-app/static/media/skill.f6acef5c.png",
+    "static/media/terroristmap1.jpeg": "/my-app/static/media/terroristmap1.f233d99d.jpeg",
+    "static/media/tetris1.png": "/my-app/static/media/tetris1.a7213eb7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a3f8cb8f.js",
+    "static/js/2.a63dc641.chunk.js",
+    "static/css/main.584b2c00.chunk.css",
+    "static/js/main.8e4d9b88.chunk.js"
+  ]
+}
