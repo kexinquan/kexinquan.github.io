@@ -1,0 +1,381 @@
+\documentclass[a4paper,11pt]{article}
+\RequirePackage[T1]{fontenc}
+
+\usepackage{times}
+\usepackage{calc}
+\usepackage[shortcuts]{extdash}
+
+\usepackage{graphicx} 
+
+\reversemarginpar
+
+\usepackage[paper=letterpaper,
+            marginparwidth=1.1in,     % Length of section titles
+            marginparsep=.095in,       % Space between titles and text
+            margin=0.5in,               % 1 inch margins
+            tmargin=0.65in,
+            includemp]{geometry}
+
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{qrcode}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{0em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang,%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=[\arabic*],resume,leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=0.05in,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\def\item{\pagebreak[2]\oldItem}\csname preFixOuterList#1\endcsname}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=1pt,itemsep=2pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=2pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+\usepackage{doi}
+\usepackage{url}
+
+\urlstyle{same}
+\providecommand*\emaillink[1]{\nolinkurl{#1}}
+\providecommand*\email[1]{\href{mailto:#1}{\emaillink{#1}}}
+
+\begin{document}
+
+ {\hspace*{-\marginparsep minus \marginparwidth}%
+\begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+\centering
+% {\LARGE \bfseries {Kexin Quan}}\\
+\vspace{0.2cm}
+% \href{mailto:vanvuong.trinh@gmail.com}{\texttt{kequan@ucsd.com}} \\
+% \href{https://trinhvv.github.io}{\texttt{http://trinhvv.github.io}}
+% \rule{\columnwidth}{1.2pt}
+\begin{center}
+    \textbf{\Huge \scshape Kexin Quan} \\ \vspace{6pt}
+    \href{mailto:kq4@illinois.edu}{\underline{kq4@illinois.edu \qrcode[height=1cm]{mailto:kq4@illinois.edu}}} $|$ 
+    % \href{https://www.linkedin.com/in/kexinquan/}{\underline{LinkedIn}}$|$ 
+    \href{https://scholar.google.com/citations?user=XrAI6c8AAAAJ&hl=en}{\underline{Google Scholar \qrcode[height=1cm]{https://scholar.google.com/citations?user=XrAI6c8AAAAJ&hl=en}}} $|$ 
+    \href{https://www.kexinquan.com/}{\underline{Personal Website \qrcode[height=1cm]{https://www.kexinquan.com/}}}
+    
+\end{center}
+\end{minipage}}
+
+\section{Research Interest}
+
+My research develops brain-inspired, affective, and agentic AI systems that augment human sensemaking and agency. I design socially intelligent, multi-agent systems that model cognition and emotion as distributed, interactive processes, enabling adaptive decision-making, reflective reasoning, and emotionally grounded human-AI collaboration in complex, information-rich environments.
+
+ \section{Education}
+
+\textbf{Ph.D. in progress, Information Sciences} University of Illinois, Urbana-Champaign
+\hfill {2023-2028}\\
+\textit{Supervised by Prof. Jessie Chin}
+
+\textbf{M.S. Electrical \& Computer Eng} University of California, San Diego 
+\hfill {2021-2023}\\
+\textit{Machine Learning and Data Science}
+% \textit{Overall GPA: 3.70}
+
+\vspace{0.1cm}
+
+\textbf{B.S. Cognitive Science} 
+University of California, San Diego
+\hfill {2017-2021}\\
+\textit{Specialization in Machine Learning \& Neural Computation}
+% \textit{Overall GPA: 3.69, Major GPA: 3.97}
+
+\section{Publications}
+\begin{bibenum}
+
+\item \href{https://arxiv.org/abs/2510.23904}{\textbf{K. Quan}, D. Albassam\textsuperscript{$\dagger$}, M. Wu\textsuperscript{$\dagger$}, Z. Ding, J. Chin. Towards AI as Colleagues: Multi-Agent System Improves Structured Ideation Processes. 
+\emph{In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI ’26). (Accepted)} }
+\label{multicolleagues}
+
+\item \href{https://arxiv.org/abs/2602.14467}{\textbf{K. Quan}, J. Chin. Conversational Decision Support for Information Search Under Uncertainty: Effects of Gist and Verbatim Feedback.
+\emph{International Journal of Human-Computer Studies (Under Review), 2026}}
+\label{sera}
+
+\item \href{https://arxiv.org/abs/2509.11115}{M. Wu, \textbf{K. Quan}, W. Liu, M. Yao, J. Chin. "Pragmatic Tools or Empowering Friends?" Discovering and Co-Designing Personality-Aligned AI Writing Companions.
+\emph{In Proceedings of the 2026 Conference Creativity and Cognition (C\&C’26), London, UK. (In Submission)} }
+\label{mbti}
+
+
+\item \href{https://arxiv.org/pdf/2511.02428}{M. Bak, \textbf{K. Quan}, T. Tomaszewski, J. Chin. Can Conversational AI Counsel for Change? A Theory-Driven Approach to Supporting Dietary Intentions in Ambivalent Individuals.
+\emph{arXiv preprint arXiv:2511.02428 (2025)}.}
+\label{counsel_llm}
+
+
+
+\item \href{https://dl.acm.org/doi/10.1145/3698061.3734388}
+{\textbf{K. Quan}, P. Ramakrishnan, J. Chin. Can AI Take a Joke—Or Make One? A Study of Humor Generation and Recognition in LLMs. 
+\emph{In Adjunct Proceedings of the 2025 Conference on Creativity and Cognition (C\&C’25), Online, 2025.} }
+\label{llm_humor}
+
+\item \href{https://dl.acm.org/doi/10.1145/3706599.3720185}
+{M. Wu, \textbf{K. Quan}, W. Liu, M. Yao, J. Chin. Incorporating Personality into AI Writing Companions: Mapping the Design Space. 
+\emph{ In Adjunct Proceedings of the CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA '25). ACM. Late-Breaking Work. } }
+\label{chilbw}
+
+\item \href {https://dl.acm.org/doi/abs/10.1145/3591196.3596818}
+{Z. Huang, \textbf{K. Quan,} J. Chan, S. MacNeil. CausalMapper: Challenging designers to think in systems with Causal Maps and Large Language Model.
+\emph{In Adjunct Proceedings of the 15th Conference on Creativity and Cognition (C\&C’23), Online, 2023.} }
+\label{causalmapper}
+
+% \item \href{https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581393}
+% {Q. Yang, Y. Hao\textsuperscript{$\dagger$}, \textbf{K. Quan\textsuperscript{$\dagger$}}, S. Yang\textsuperscript{$\dagger$}, Y. Zhao\textsuperscript{$\dagger$}, V. Kuleshov, F. Wang. 2023. Harnessing Biomedical Literature to Calibrate Clinicians’ Trust in AI Decision Support Systems.
+% \emph{In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI’23).} }
+\item \href{https://dl.acm.org/doi/fullHtml/10.1145/3544548.3581393}
+{Q. Yang, Y. Hao\textsuperscript{$\dagger$}, \textbf{K. Quan\textsuperscript{$\dagger$}}, S. Yang\textsuperscript{$\dagger$}, Y. Zhao\textsuperscript{$\dagger$}, V. Kuleshov, F. Wang. 2023. Harnessing Biomedical Literature to Calibrate Clinicians’ Trust in AI Decision Support Systems.
+\emph{In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI’23).}}
+\footnotetext{\textsuperscript{$\dagger$}Co-second authors with equal contribution.}
+\label{calibrate_trust}
+
+\item \href{https://dl.acm.org/doi/abs/10.1145/3450741.3465261}{S. MacNeil, Z. Ding, \textbf{K. Quan,} T. J. Parashos, Y. Sun, S. P. Dow. Creative Work: Helping Novices Frame Better Problems through Interactive Scaffolding.
+\emph{In Proceedings of the 13th Conference on Creativity and Cognition (C\&C’21), Online, 2021.}}
+\label{problib}
+
+% https://dl.acm.org/doi/10.1145/3474349.3480203
+\item \href{https://dl.acm.org/doi/10.1145/3474349.3480203}{S. MacNeil, Z. Ding, \textbf{K. Quan,} Z. Huang, K. Chen, S. P. Dow. ProbMap: Automatically Constructing Design Galleries through Feature Extraction and Semantic Clustering.
+\emph{In Adjunct Proceedings of the 2021 Annual ACM Symposium on User Interface Software and Technology (UIST’21 Demo), Online, 2021.} }
+\label{probmap}
+
+\end{bibenum}
+
+% \textsuperscript{$\dagger$}Co-second authors with equal contribution.
+
+
+\section{Research Experience}
+
+
+\textbf{Research Assistant},
+\href{https://acl.gov/aging-and-disability-in-america/data-and-research/nidilrr-publications-and-resources}{Funded by NIDILRR}
+\hfill {Sep 2024--present}\\
+Supervised by \href{https://www.ahs.illinois.edu/chiu}{Prof. Chung-yi Chiu}, \href{https://czhai.cs.illinois.edu/}{ChengXiang Zhai}, and \href{https://jessiechinlab.ischool.illinois.edu/}{Jessie Chin}
+\begin{innerlist}
+\item Led the design and implementation of an agentic, multi-agent conversational framework grounded in cognitive architectures (ACT-R) to support adaptive health behavior change. Developed real-time, context-aware prototypes that orchestrate specialized agents for user modeling, dialogue planning, feedback generation, integrating generative AI to enhance self-efficacy and sustained engagement.
+
+\item Designed personalized multi-agent dialogue strategies informed by motivational theory and behavior change models. Built empathetic, multi-voiced conversational agents that dynamically coordinate communication style, intervention timing, and feedback based on users’ behavioral states and interaction signals, validated through human-subject studies.
+\end{innerlist}
+\vspace{0.2cm}
+
+\textbf{Research Assistant},
+{UIUC ACTION Lab}
+\hfill {July 2023--present}\\
+Supervised by \href{https://jessiechinlab.ischool.illinois.edu/}{Prof. Jessie Chin}
+\begin{innerlist}
+\item Currently developing Mental Worlds, a brain-inspired generative architecture that models inner–outer world coupling to operationalize emotion as an internal regulatory process and examine how structured affective dynamics support reflective reasoning and emotionally grounded HAI collaboration.
+
+\item Investigate how humans and AI agents jointly construct, distribute, and regulate cognition across ideation and decision processes, focusing on how feedback, representation, and social framing shape adaptive reasoning and shared understanding.
+
+\item Led SERA, a self-regulatory decision-making assistant grounded in Fuzzy-Trace Theory that examines how gist- and verbatim-based AI feedback influence users’ information sampling and confidence \ref{sera}, and MultiColleagues, a multi-agent ideation platform that leverages role-based AI collaboration to study distributed creativity and collective sense-making \ref{multicolleagues}.
+
+\end{innerlist}
+\vspace{0.2cm}
+
+% \pagebreak
+\textbf{Research Assistant},
+{Temple HCI Lab}
+\hfill {Mar 2022--Sep 2023}\\
+Supervised by \href{http://stevemacn.github.io/}{Prof. Stephen MacNeil}
+\begin{innerlist}
+\item Investigated how designers construct and navigate conceptual representations to support systems thinking and creative problem-solving across complex design contexts.
+\item Designed and evaluated \textit{CausalMapper}, an LLM-enhanced web-based creativity support tool that scaffolds causal reasoning and exploration, leading to a C\&C ’23 Demo paper \ref{causalmapper}.
+
+\end{innerlist}
+\vspace{0.2cm}
+
+\textbf{Visiting Research Intern},
+{Cornell DesignAI Group}
+\hfill {Mar 2022--Sep 2022}\\
+Supervised by \href{https://qianyang.co/}{Prof. Qian Yang}
+\begin{innerlist}
+\item Developed a clinical decision-support tool that integrates biomedical literature with AI-recommended treatments based on patient symptoms, aiming to calibrate clinicians’ trust in AI suggestions.
+\item Conducted iterative prototyping and evaluated designs through clinician interviews, contributing the findings to a CHI '23 full paper as a co-second author \ref{calibrate_trust}.
+\end{innerlist}
+
+\vspace{0.2cm}
+
+
+\textbf{Research Assistant},
+{UCSD Design Lab}
+\hfill {Apr 2020--Aug 2021}\\
+Supervised by \href{https://spdow.ucsd.edu/}{Prof. Steven Dow} and \href{http://stevemacn.github.io/}{Prof. Stephen MacNeil} 
+\begin{innerlist}
+\item Developed a real-time data pipeline to construct a network map in ConceptNet by decomposing and connecting {\raise.17ex\hbox{$\scriptstyle\sim$}}300 users’ unstructured problems based on shared key features using NLP tool-kits.
+\item Created creativity-support systems with computation models that automatically clustered and visualized user-generated problems to scaffold design novices as they worked on creative tasks, advanced understanding of design guidance mechanisms and resulted in C\&C'21 \ref{problib} and UIST'21 \ref{probmap} papers.
+\end{innerlist}
+\vspace{0.3cm}
+
+
+\textbf{Visiting Research Assistant},
+{Tsinghua University, The Future Lab}
+\hfill {July--Oct 2019}\\
+Supervised by \href{https://www.enad.tsinghua.edu.cn/info/1027/1334.htm}{Prof. Yingqing Xu}
+\begin{innerlist}
+\item Designed and evaluated emotion-sensitive virtual agents, conducting semi-structured interviews with 30 participants and mixed-method analysis of affective and behavioral responses, contributing to a \href{https://dl.acm.org/doi/10.1145/3411763.3451660}{CHI EA'21 publication}.
+
+\item Collected, processed, and visualized multimodal user data from $\sim$80 participants in Python using wearable and instrumented devices, including physiological signals (e.g., heart rate, blood pressure) and behavioral interaction signals (e.g., mouse-click pressure), to quantify emotion-related patterns for adaptive, real-time interaction.
+\end{innerlist}
+
+\section{Professional  Experience}
+\textbf{Data Analyst Intern},
+{AXOS Bank, San Diego, CA}
+\vspace{0.1cm}
+\hfill{May--Aug 2021}
+\begin{innerlist}
+\item Designed and deployed a real-time interactive dashboard utilizing SQL, Excel, and Python for the comprehensive monitoring of consumer deposit metrics. 
+\item Created insightful reports and executed strategic plans that significantly reduced the incidence of overdrafting among 60\% of business banking customers.
+\item Implemented efficiency-enhancing measures that reduced the manual review workload by 5.7\% and contributed to a \$23,000 increase in annual revenue.
+\end{innerlist}
+
+
+\section{Skills}
+
+\textbf{Programming Languages:}{ Python, R, Javascript, \LaTeX, MATLAB, SQL, Java}
+
+
+\textbf{Machine Learning\&NLP:}{ pyTorch, TensorFlow, scikitlearn, NLTK, OpenAI, pandas, spaCy, TextBlob}
+
+
+\textbf{Visualization Tools:}{ Matplotlib, Seaborn, ggplot2, Plotly, Tableau, Excel}
+
+
+\textbf{Fullstack:}{ Git, React.js, Flask, HTML, CSS, Firebase, Figma, Miro, Heroku}
+
+
+\section{Mentorship}
+\textbf{Mentored Students}
+\hfill {2024-present}
+\begin{innerlist}
+
+\item \href{https://carolzhangzz.github.io/}{Qinshi Zhang}: Master student, Computer Science (UCSD)
+\item \href{http://jiayeyong.com/}{Jiaye Yong}: Undergraduate student, Computer Science (UIUC)
+\item \href{https://www.linkedin.com/in/rachel-cheung-is/}{Rachel Cheung}: Undergraduate student, ISchool (UIUC)
+\item \href{https://www.linkedin.com/in/pavithramakrishnan/}{Pavithra Ramakrishnan}: Undergraduate student, ISchool (UIUC)
+
+\end{innerlist}
+
+
+\section{Teaching Experience}
+
+\textbf{Teaching Assistant}, 
+{UIUC}
+\hfill {2024}
+\vspace{0.1cm}
+\begin{innerlist}
+\item IS504: Sociotechnical Information Systems (class size: 100) 
+
+\end{innerlist}
+
+\textbf{Undergrad Teaching Assistant}, 
+{UCSD}
+\hfill {2020--2021}
+
+\begin{innerlist}
+\item COGS189: Brain Computer Interfaces (class size: 50)
+\item COGS14A: Introduction to Research Methods (class size: 50)
+\end{innerlist}
+
+
+\section{Academic Service}
+
+\textbf{Program Committee Member} \\
+ACM Creativity \& Cognition (C\&C), {Publication Chair}
+\hfill{2026}
+\vspace{0.2cm}
+
+\textbf{Reviewer (15+ papers)} \\
+ACM Creativity \& Cognition (C\&C) \hfill{2025, 2026}\\
+ACM CHI Full Paper, Poster \hfill{2024, 2025, 2026}\\
+
+\textbf{San Diego Design Workshop (SDDW)}, 
+{Organizer}
+\hfill{2021}
+\vspace{0.2cm}
+
+\textbf{Design for San Diego (D4SD) Community Design Jam}, 
+{Coordinator}
+\hfill{2020}
+\vspace{0.2cm}
+
+
+
+
+
+
+%\halfblankline
+
+\end{document}
+
